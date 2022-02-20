@@ -1,0 +1,47 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.0'
+    id 'java'
+}
+
+group 'io.rlo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/io.socket/engine.io-server
+    implementation 'io.socket:engine.io-server:5.0.1'
+
+    // https://mvnrepository.com/artifact/io.socket/socket.io-server
+    implementation 'io.socket:socket.io-server:3.0.2'
+
+    // https://mvnrepository.com/artifact/io.javalin/javalin
+    compileOnly 'io.javalin:javalin:4.3.0'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    // https://mvnrepository.com/artifact/com.konghq/unirest-java
+    testImplementation 'com.konghq:unirest-java:3.13.6'
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation 'org.assertj:assertj-core:3.22.0'
+    // https://mvnrepository.com/artifact/io.javalin/javalin
+    testImplementation 'io.javalin:javalin:4.3.0'
+
+    testImplementation 'org.slf4j:slf4j-api:1.7.36'
+
+    // https://mvnrepository.com/artifact/io.socket/socket.io-client
+    testImplementation 'io.socket:socket.io-client:2.0.1'
+
+    testImplementation 'io.github.microutils:kotlin-logging-jvm:2.1.21'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
