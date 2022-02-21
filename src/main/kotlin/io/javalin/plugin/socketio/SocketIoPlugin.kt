@@ -21,7 +21,6 @@ class SocketIoPlugin(path: String = "/socket.io/*", handler: SocketIoHandler): P
     private val mSocketIoServer: SocketIoServer
 
     init {
-
         val options = EngineIoServerOptions.newFromDefault()
 
         // Disable Cors handling by the engine.io server so Javalin can handle it (if configured)
@@ -33,7 +32,7 @@ class SocketIoPlugin(path: String = "/socket.io/*", handler: SocketIoHandler): P
 
         this.path = formatPath(path)
 
-        handler.apply { mSocketIoServer }
+        handler.invoke(mSocketIoServer)
     }
 
     private fun formatPath(path: String): String {
@@ -47,13 +46,10 @@ class SocketIoPlugin(path: String = "/socket.io/*", handler: SocketIoHandler): P
         val engineIoWs = JavalinEngineIoWebSocket(mEngineIoServer)
 
         app.routes {
+
             path(path) {
-                get {
-                    mEngineIoServer.handleRequest(it.req, it.res)
-                }
-                post {
-                    mEngineIoServer.handleRequest(it.req, it.res)
-                }
+                get { mEngineIoServer.handleRequest(it.req, it.res) }
+                post { mEngineIoServer.handleRequest(it.req, it.res) }
             }
 
             ws(path) { ws ->

@@ -8,7 +8,7 @@ import org.eclipse.jetty.websocket.api.WebSocketListener
 import java.nio.ByteBuffer
 
 
-class JavalinEngineIoWebSocket(val mServer: EngineIoServer): EngineIoWebSocket(), WebSocketListener {
+class JavalinEngineIoWebSocket(private val mServer: EngineIoServer): EngineIoWebSocket(), WebSocketListener {
 
     private var mSession: Session? = null
     private var mQuery: MutableMap<String, String>? = null
