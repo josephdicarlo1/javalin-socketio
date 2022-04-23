@@ -2,13 +2,19 @@ package io.javalin.plugin.socketio
 
 import io.socket.engineio.server.EngineIoServer
 import io.socket.engineio.server.EngineIoWebSocket
-import io.socket.parseqs.ParseQS
+import io.socket.engineio.server.utils.ParseQS
 import org.eclipse.jetty.websocket.api.Session
 import org.eclipse.jetty.websocket.api.WebSocketListener
 import java.nio.ByteBuffer
 
-
-class JavalinEngineIoWebSocket(private val mServer: EngineIoServer): EngineIoWebSocket(), WebSocketListener {
+/**
+ * Adapter for Javalin WebSocket implementation
+ *
+ * Adapted from [engine.io-server-java](https://github.com/socketio/engine.io-server-java/tree/master/engine.io-server-jetty)
+ *
+ * @author Joseph Dicarlo @josephdicarlo1
+ */
+class JavalinEngineIoWebSocketAdapter(private val mServer: EngineIoServer): EngineIoWebSocket(), WebSocketListener {
 
     private var mSession: Session? = null
     private var mQuery: MutableMap<String, String>? = null
