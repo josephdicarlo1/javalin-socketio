@@ -3,7 +3,7 @@ package io.javalin.plugin.socketio
 import io.javalin.websocket.*
 import io.socket.engineio.server.EngineIoServer
 
-open class SocketIoWsHandler(mEngineIo: EngineIoServer):
+class SocketIoWsHandler(mEngineIo: EngineIoServer):
     WsConnectHandler,
     WsMessageHandler,
     WsBinaryMessageHandler,
