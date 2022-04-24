@@ -64,4 +64,10 @@ publishing {
             }
         }
     }
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            description = 'Socket.io plugin for Javalin'
+        }
+    }
 }
