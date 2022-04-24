@@ -22,10 +22,10 @@ dependencies {
     compileOnly 'io.javalin:javalin:4.4.0'
 
     // https://github.com/socketio/engine.io-server-java
-    implementation 'io.socket:engine.io-server:6.2.1'
+    api 'io.socket:engine.io-server:6.2.1'
 
     // https://github.com/socketio/socket.io-server-java/
-    implementation 'io.socket:socket.io-server:4.0.1'
+    api 'io.socket:socket.io-server:4.0.1'
 
     // https://github.com/stleary/JSON-java
     implementation 'org.json:json:20220320'
